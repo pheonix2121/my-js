@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/Header/Navbar';
+import AddProduct from './components/Pages/AddProduct';
+import ShowProducts from './components/Pages/ShowProducts';
+import { useState } from 'react';
+import Cart from './components/Cart/Cart';
 
 function App() {
+  const [isCartOpen, SetIsCartOpen] = useState(false)
+  const openCartHandler = () => {
+    SetIsCartOpen(true)
+  }
+
+  const closeCartHandler = () => {
+    SetIsCartOpen(false)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {isCartOpen && <Cart closeCartHandler={closeCartHandler} />}
+      <Navbar openCartHandler={openCartHandler} />
+      <Routes>
+        <Route path='/' element={<ShowProducts />} />
+        <Route path='/add-products' element={<AddProduct />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

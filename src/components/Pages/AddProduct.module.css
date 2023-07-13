@@ -1,0 +1,42 @@
+.container {
+    width: 60%;
+    margin: 50px auto;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  .inputField {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  .submitButton {
+    background-color: #303530;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+    align-self: center;
+  }
+  
+  .submitButton:hover {
+    background-color: #848d84;
+  }
+  
+  .submitButton:active {
+    background-color: #39823f;
+  }
